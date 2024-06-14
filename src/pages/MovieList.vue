@@ -9,9 +9,31 @@
 </template>
 
 <script>
+import { store } from '../store';
+import axios from 'axios';
+
 export default {
-    name: 'MovieList'
+    name: 'MovieList',
+    data() {
+        return {
+            store,
+            movies: [],
+        }
+    },
+    methods: {
+        getAll() {
+            axios.get(this.store.apiBaseUrl + '/movies').then((response) => {
+                console.log(response.data);
+            })
+        }
+    },
+    mounted() {
+        this.getAll();
+    },
+
+
 }
+
 </script>
 
 <style lang="scss" scoped>

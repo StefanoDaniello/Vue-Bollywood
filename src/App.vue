@@ -14,22 +14,9 @@ import axios from 'axios';
     return {
       store
     }
-  },
-  methods: {
-    getAll() {
-      axios.get(this.store.apiBaseUrl + '/movies').then((response) => {
-        console.log(response.data);
-      })
-    }
-  },
-  mounted() {
-    this.getAll();
-  },
-
-
   }
 
-
+}
 </script>
 
 <style lang="scss" scoped>
