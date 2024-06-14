@@ -1,19 +1,45 @@
 <template>
-    <div class="container">
-      <div class="text-center">
-          <h1>Ciao</h1>
+  <div class="container">
+    <div class="debug">
+      Questo è il MovieList.vue
+
+      <div>
+
       </div>
     </div>
-  </template>
-  
-  <script>
-  import {store} from '../store';
-  import axios from 'axios';
-  export default {       
-      name: 'AppHome',
-  }
-  </script>
-  
-  <style lang="scss" scoped>
-  
-  </style>
+  </div>
+</template>
+
+<script>
+import { store } from '../store';
+import axios from 'axios';
+
+export default {
+  name: 'MovieList',
+  data() {
+    return {
+      store,
+      movies: [],
+    }
+  },
+  methods: {
+    getAll() {
+      axios.get(this.store.apiBaseUrl + '/movies').then((response) => {
+        console.log(response.data);
+      })
+    }
+  },
+  mounted() {
+    this.getAll();
+  },
+
+
+}
+
+</script>
+
+<style lang="scss" scoped>
+.debug {
+  border: 1px solid red;
+}
+</style>
