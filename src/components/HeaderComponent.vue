@@ -38,7 +38,7 @@
           </ul>
           <div class="ms-auto">
             <a href="http://localhost:8000" class="nav-link">
-              <i class="fa-solid fa-user"></i> <span>Area Riservata</span>
+              <i class="fa-solid fa-user"></i><span>Area Riservata</span>
             </a>
           </div>
         </div>
@@ -52,12 +52,20 @@ export default {
   name: "HeaderComponent",
   data() {
     return {
-        img: "../src/img/bollywood-logo.png",
+        img: "../src/img/bollywood.png",
       show: false,
       links: [
         {
           label: "Home",
           routeName: "home",
+        },
+        {
+          label: "Contattaci",
+          routeName: "contact",
+        },
+        {
+          label: "Chi Siamo",
+          routeName: "about",
         },
       ],
     };
@@ -67,8 +75,15 @@ export default {
 
 <style lang="scss" scoped>
 header{
-    background-color: rgb(41, 39, 39);
+    background-color: #161E2E;
     color: white;
+    border-radius: 5px;
+    a{
+        color: white !important;
+        &:hover{
+          color: #0076BD !important;
+        }
+      }
     #logo{
         width: 150px;
         img{
