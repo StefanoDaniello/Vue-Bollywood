@@ -59,14 +59,6 @@ export default {
           label: "Home",
           routeName: "home",
         },
-        {
-          label: "Chi Siamo",
-          routeName: "about",
-        },
-        {
-          label: "Contatti",
-          routeName: "contact",
-        },
       ],
     };
   },

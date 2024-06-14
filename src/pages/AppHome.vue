@@ -1,41 +1,32 @@
 <template>
   <div class="container">
-    <div class="debug">
-      Questo è il MovieList.vue
-
-      <div>
-
-      </div>
-    </div>
+    <div class="debug">Questo è il AppHome.vue</div>
   </div>
 </template>
 
 <script>
-import { store } from '../store';
-import axios from 'axios';
+import { store } from "../store";
+import axios from "axios";
 
 export default {
-  name: 'MovieList',
+  name: "AppHome",
   data() {
     return {
       store,
       movies: [],
-    }
+    };
   },
   methods: {
     getAll() {
-      axios.get(this.store.apiBaseUrl + '/movies').then((response) => {
+      axios.get(this.store.apiBaseUrl + "/movies").then((response) => {
         console.log(response.data);
-      })
-    }
+      });
+    },
   },
   mounted() {
     this.getAll();
   },
-
-
-}
-
+};
 </script>
 
 <style lang="scss" scoped>

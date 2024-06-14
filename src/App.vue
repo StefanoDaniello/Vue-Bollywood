@@ -1,6 +1,5 @@
 <template>
-  <h1 class="text-center">Hello</h1>
-  <i class="fa-solid fa-house"></i>
+  <HeaderComponent/>
   <router-view></router-view>
 </template>
 
