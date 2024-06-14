@@ -1,13 +1,16 @@
 <template>
-  <h1 class="text-center">Hello</h1>
-  <i class="fa-solid fa-house"></i>
+  <HeaderComponent/>
 </template>
 
 <script>
+import HeaderComponent from './components/HeaderComponent.vue';
 import { store } from './store';
 import axios from 'axios';
   export default {
     name: 'App',
+    components: {
+      HeaderComponent,
+    },
     data() {
     return {
       store
