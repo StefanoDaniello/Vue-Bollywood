@@ -1,11 +1,14 @@
 <template>
-  <HeaderComponent/>
+  <h1 class="text-center">Hello</h1>
+  <i class="fa-solid fa-house"></i>
+  <router-view></router-view>
 </template>
 
 <script>
 import HeaderComponent from './components/HeaderComponent.vue';
 import { store } from './store';
 import axios from 'axios';
+
   export default {
     name: 'App',
     components: {
@@ -15,22 +18,9 @@ import axios from 'axios';
     return {
       store
     }
-  },
-  methods: {
-    getAll() {
-      axios.get(this.store.apiBaseUrl + '/movies').then((response) => {
-        console.log(response.data);
-      })
-    }
-  },
-  mounted() {
-    this.getAll();
-  },
-
-
   }
 
-
+}
 </script>
 
 <style lang="scss" scoped>
