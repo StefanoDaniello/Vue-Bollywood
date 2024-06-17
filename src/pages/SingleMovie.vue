@@ -19,11 +19,11 @@
         </div>
         <h2>Recensioni</h2>
 
-       <div class="row">
+       <!-- <div class="row">
            <div class="col-6" v-for="(item, index) in movie.rewiews" :key="index">
               <div>{{ item.name }}</div>
             </div>
-       </div>
+       </div> -->
 
     </div>
   
