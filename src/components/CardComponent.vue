@@ -10,7 +10,7 @@
     <div class="container py-4">
       <article class="postcard dark blue">
         <a class="postcard__img_link" href="#">
-          <img class="postcard__img" :src="getImage" alt="Image Title" />
+          <img class="postcard__img" :src="getImage" @error="setDefaultImage" alt="Image Title" />
         </a>
         <div class="postcard__text">
           <h1 class="postcard__title blue">
@@ -59,6 +59,11 @@ export default {
       return this.item.movie.cover_image
         ? this.store.imgBasePath + this.item.movie.cover_image
         : "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/310px-Placeholder_view_vector.svg.png";
+    },
+  },
+  methods: {
+    setDefaultImage(event) {
+      event.target.src = this.store.defaultImg;
     },
   },
   mounted() {
