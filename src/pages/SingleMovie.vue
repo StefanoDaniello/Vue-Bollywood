@@ -19,11 +19,11 @@
         </div>
         <h2>Recensioni</h2>
 
-       <!-- <div class="row">
-           <div class="col-6" v-for="(item, index) in movie.rewiews" :key="index">
-              <div>{{ item.name }}</div>
+       <div class="row">
+           <div class="col-6" v-for="(item, index) in movie.reviews" :key="index">
+              <div>{{ item.author }}</div>
             </div>
-       </div> -->
+       </div> 
 
     </div>
   
@@ -52,7 +52,7 @@
                     console.log(res.data.results);
                     this.hall = res.data.results.hall;
                     this.time_slot = res.data.results.time_slot;
-                    // console.log(res.data.results.movie);
+                    	console.log(res.data.results.movie);
                 }).catch((err) => {
                     console.log(err);
                     // console.log(err.response.data);
