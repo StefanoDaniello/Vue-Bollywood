@@ -1,58 +1,66 @@
 <template>
-    <!-- <div class="card h-100">
+  <!-- <div class="card h-100">
         <img :src=getImage class="card-img-top" :alt=item.title>
         <div class="card-body">
             <h5 class="card-title"></h5>
             <p class="card-text"></p>
         </div>
     </div> -->
-    <section>
-	<div class="container py-4">
-
-		<article class="postcard dark blue">
-			<a class="postcard__img_link" href="#">
-				<img class="postcard__img" src="https://picsum.photos/1000/1000" alt="Image Title"/>
-			</a>
-			<div class="postcard__text">
-				<h1 class="postcard__title blue"><a href="#">Podcast Title</a></h1>
-				<div class="postcard__subtitle small">
-					<time datetime="2020-05-25 12:00:00">
-						<i class="fas fa-calendar-alt mr-2"></i>Mon, May 25th 2020
-					</time>
-				</div>
-				<div class="postcard__bar"></div>
-				<div class="postcard__preview-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!</div>
-				<ul class="postcard__tagbox">
-					<li class="tag__item"><i class="fas fa-tag mr-2"></i> Podcast</li>
-					<li class="tag__item"><i class="fas fa-clock mr-2"></i> 55 mins.</li>
-					<li class="tag__item play blue">
-						<a href="#"><i class="fas fa-play mr-2"></i> Play Trailer</a>
-					</li>
-				</ul>
-			</div>
-		</article>
-	</div>
-</section>
-
-
+  <section>
+    <div class="container py-4">
+      <article class="postcard dark blue">
+        <a class="postcard__img_link" href="#">
+          <img class="postcard__img" :src="getImage" alt="Image Title" />
+        </a>
+        <div class="postcard__text">
+          <h1 class="postcard__title blue">
+            <a href="#">{{ item.movie.title }}</a>
+          </h1>
+          <div class="postcard__subtitle small">
+            <time datetime="2020-05-25 12:00:00">
+              <i class="fas fa-calendar-alt mr-2"></i>Mon, May 25th 2020
+            </time>
+          </div>
+          <div class="postcard__bar"></div>
+          <div class="postcard__preview-txt">{{ item.movie.overview }}</div>
+          <ul class="postcard__tagbox">
+            <li class="tag__item"><i class="fas fa-tag mr-2"></i> Podcast</li>
+            <li class="tag__item">
+              <i class="fas fa-clock mr-2"></i> 55 mins.
+            </li>
+            <li class="tag__item play blue">
+              <a href="#"><i class="fas fa-play mr-2"></i> Play Trailer</a>
+            </li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
 </template>
 
 <script>
-import { store } from '../store';
+import { store } from "../store";
+import axios from "axios";
 export default {
-name: 'CardComponent',
-props: ['item'],
-data() {
+  name: "CardComponent",
+  props: ["item"],
+  data() {
     return {
-        store
-    }
-},
-computed: {
+      store,
+    };
+  },
+  computed: {
     getImage() {
-        return this.item.image ? this.store.imgBasePath + this.item.image : 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/310px-Placeholder_view_vector.svg.png';
-    }
-}
-}
+      return this.item.cover_image
+        ? this.store.imgBasePath + this.item.movie.cover_image
+        : "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/310px-Placeholder_view_vector.svg.png";
+    },
+  },
+  mounted() {
+    console.log(this.item);
+    // console.log(this.items.hall.name);
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -68,39 +76,39 @@ $main-blue-rgb-015: rgba(0, 118, 189, 0.1) !default;
 
 /* This pen */
 body {
-	font-family: "Baloo 2", cursive;
-	font-size: 16px;
-	color: #ffffff;
-	text-rendering: optimizeLegibility;
-	font-weight: initial;
+  font-family: "Baloo 2", cursive;
+  font-size: 16px;
+  color: #ffffff;
+  text-rendering: optimizeLegibility;
+  font-weight: initial;
 }
 
 .dark {
-	background: #110f16;
+  background: #110f16;
 }
-
 
 .light {
-	background: #f3f5f7;
+  background: #f3f5f7;
 }
 
-a, a:hover {
-	text-decoration: none;
-	transition: color 0.3s ease-in-out;
+a,
+a:hover {
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
 }
 
 #pageHeaderTitle {
-	margin: 2rem 0;
-	text-transform: uppercase;
-	text-align: center;
-	font-size: 2.5rem;
+  margin: 2rem 0;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 2.5rem;
 }
 
 /* Cards */
 .postcard {
   flex-wrap: wrap;
   display: flex;
-  
+
   box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.66);
   border-radius: 10px;
   margin: 0;
@@ -108,30 +116,31 @@ a, a:hover {
   position: relative;
   color: #ffffff;
 
-	&.dark {
-		background-color: #18151f;
-	}
-	&.light {
-		background-color: #e1e5ea;
-	}
-	
-	.t-dark {
-		color: #18151f;
-	}
-	
+  &.dark {
+    background-color: #18151f;
+  }
+  &.light {
+    background-color: #e1e5ea;
+  }
+
+  .t-dark {
+    color: #18151f;
+  }
+
   a {
     color: inherit;
   }
-	
-	h1,	.h1 {
-		margin-bottom: 0.5rem;
-		font-weight: 500;
-		line-height: 1.2;
-	}
-	
-	.small {
-		font-size: 80%;
-	}
+
+  h1,
+  .h1 {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  .small {
+    font-size: 80%;
+  }
 
   .postcard__title {
     font-size: 1.75rem;
@@ -176,7 +185,7 @@ a, a:hover {
     flex-flow: row wrap;
     font-size: 14px;
     margin: 20px 0 0 0;
-		padding: 0;
+    padding: 0;
     justify-content: center;
 
     .tag__item {
@@ -249,179 +258,198 @@ a, a:hover {
       transform: scale(1.1);
     }
 
-    &:nth-child(2n+1) {
+    &:nth-child(2n + 1) {
       flex-direction: row;
     }
 
-    &:nth-child(2n+0) {
+    &:nth-child(2n + 0) {
       flex-direction: row-reverse;
     }
 
-    &:nth-child(2n+1) .postcard__text::before {
+    &:nth-child(2n + 1) .postcard__text::before {
       left: -12px !important;
       transform: rotate(4deg);
     }
 
-    &:nth-child(2n+0) .postcard__text::before {
+    &:nth-child(2n + 0) .postcard__text::before {
       right: -12px !important;
       transform: rotate(-4deg);
     }
   }
 }
-@media screen and (min-width: 1024px){
-		.postcard__text {
-      padding: 2rem 3.5rem;
-    }
-		
-		.postcard__text:before {
-      content: "";
-      position: absolute;
-      display: block;
-      
-      top: -20%;
-      height: 130%;
-      width: 55px;
-    }
-	
-  .postcard.dark {
-		.postcard__text:before {
-			background: #18151f;
-		}
+@media screen and (min-width: 1024px) {
+  .postcard__text {
+    padding: 2rem 3.5rem;
   }
-	.postcard.light {
-		.postcard__text:before {
-			background: #e1e5ea;
-		}
+
+  .postcard__text:before {
+    content: "";
+    position: absolute;
+    display: block;
+
+    top: -20%;
+    height: 130%;
+    width: 55px;
+  }
+
+  .postcard.dark {
+    .postcard__text:before {
+      background: #18151f;
+    }
+  }
+  .postcard.light {
+    .postcard__text:before {
+      background: #e1e5ea;
+    }
   }
 }
 
 /* COLORS */
 .postcard .postcard__tagbox .green.play:hover {
-	background: $main-green;
-	color: black;
+  background: $main-green;
+  color: black;
 }
 .green .postcard__title:hover {
-	color: $main-green;
+  color: $main-green;
 }
 .green .postcard__bar {
-	background-color: $main-green;
+  background-color: $main-green;
 }
 .green::before {
-	background-image: linear-gradient(
-		-30deg,
-		$main-green-rgb-015,
-		transparent 50%
-	);
+  background-image: linear-gradient(
+    -30deg,
+    $main-green-rgb-015,
+    transparent 50%
+  );
 }
 .green:nth-child(2n)::before {
-	background-image: linear-gradient(30deg, $main-green-rgb-015, transparent 50%);
+  background-image: linear-gradient(
+    30deg,
+    $main-green-rgb-015,
+    transparent 50%
+  );
 }
 
 .postcard .postcard__tagbox .blue.play:hover {
-	background: $main-blue;
+  background: $main-blue;
 }
 .blue .postcard__title:hover {
-	color: $main-blue;
+  color: $main-blue;
 }
 .blue .postcard__bar {
-	background-color: $main-blue;
+  background-color: $main-blue;
 }
 .blue::before {
-	background-image: linear-gradient(-30deg, $main-blue-rgb-015, transparent 50%);
+  background-image: linear-gradient(
+    -30deg,
+    $main-blue-rgb-015,
+    transparent 50%
+  );
 }
 .blue:nth-child(2n)::before {
-	background-image: linear-gradient(30deg, $main-blue-rgb-015, transparent 50%);
+  background-image: linear-gradient(30deg, $main-blue-rgb-015, transparent 50%);
 }
 
 .postcard .postcard__tagbox .red.play:hover {
-	background: $main-red;
+  background: $main-red;
 }
 .red .postcard__title:hover {
-	color: $main-red;
+  color: $main-red;
 }
 .red .postcard__bar {
-	background-color: $main-red;
+  background-color: $main-red;
 }
 .red::before {
-	background-image: linear-gradient(-30deg, $main-red-rgb-015, transparent 50%);
+  background-image: linear-gradient(-30deg, $main-red-rgb-015, transparent 50%);
 }
 .red:nth-child(2n)::before {
-	background-image: linear-gradient(30deg, $main-red-rgb-015, transparent 50%);
+  background-image: linear-gradient(30deg, $main-red-rgb-015, transparent 50%);
 }
 
 .postcard .postcard__tagbox .yellow.play:hover {
-	background: $main-yellow;
-	color: black;
+  background: $main-yellow;
+  color: black;
 }
 .yellow .postcard__title:hover {
-	color: $main-yellow;
+  color: $main-yellow;
 }
 .yellow .postcard__bar {
-	background-color: $main-yellow;
+  background-color: $main-yellow;
 }
 .yellow::before {
-	background-image: linear-gradient(
-		-30deg,
-		$main-yellow-rgb-015,
-		transparent 50%
-	);
+  background-image: linear-gradient(
+    -30deg,
+    $main-yellow-rgb-015,
+    transparent 50%
+  );
 }
 .yellow:nth-child(2n)::before {
-	background-image: linear-gradient(
-		30deg,
-		$main-yellow-rgb-015,
-		transparent 50%
-	);
+  background-image: linear-gradient(
+    30deg,
+    $main-yellow-rgb-015,
+    transparent 50%
+  );
 }
 
 @media screen and (min-width: 769px) {
-	.green::before {
-		background-image: linear-gradient(
-			-80deg,
-			$main-green-rgb-015,
-			transparent 50%
-		);
-	}
-	.green:nth-child(2n)::before {
-		background-image: linear-gradient(
-			80deg,
-			$main-green-rgb-015,
-			transparent 50%
-		);
-	}
+  .green::before {
+    background-image: linear-gradient(
+      -80deg,
+      $main-green-rgb-015,
+      transparent 50%
+    );
+  }
+  .green:nth-child(2n)::before {
+    background-image: linear-gradient(
+      80deg,
+      $main-green-rgb-015,
+      transparent 50%
+    );
+  }
 
-	.blue::before {
-		background-image: linear-gradient(
-			-80deg,
-			$main-blue-rgb-015,
-			transparent 50%
-		);
-	}
-	.blue:nth-child(2n)::before {
-		background-image: linear-gradient(80deg, $main-blue-rgb-015, transparent 50%);
-	}
+  .blue::before {
+    background-image: linear-gradient(
+      -80deg,
+      $main-blue-rgb-015,
+      transparent 50%
+    );
+  }
+  .blue:nth-child(2n)::before {
+    background-image: linear-gradient(
+      80deg,
+      $main-blue-rgb-015,
+      transparent 50%
+    );
+  }
 
-	.red::before {
-		background-image: linear-gradient(-80deg, $main-red-rgb-015, transparent 50%);
-	}
-	.red:nth-child(2n)::before {
-		background-image: linear-gradient(80deg, $main-red-rgb-015, transparent 50%);
-	}
-	
-	.yellow::before {
-		background-image: linear-gradient(
-			-80deg,
-			$main-yellow-rgb-015,
-			transparent 50%
-		);
-	}
-	.yellow:nth-child(2n)::before {
-		background-image: linear-gradient(
-			80deg,
-			$main-yellow-rgb-015,
-			transparent 50%
-		);
-	}
+  .red::before {
+    background-image: linear-gradient(
+      -80deg,
+      $main-red-rgb-015,
+      transparent 50%
+    );
+  }
+  .red:nth-child(2n)::before {
+    background-image: linear-gradient(
+      80deg,
+      $main-red-rgb-015,
+      transparent 50%
+    );
+  }
+
+  .yellow::before {
+    background-image: linear-gradient(
+      -80deg,
+      $main-yellow-rgb-015,
+      transparent 50%
+    );
+  }
+  .yellow:nth-child(2n)::before {
+    background-image: linear-gradient(
+      80deg,
+      $main-yellow-rgb-015,
+      transparent 50%
+    );
+  }
 }
-
 </style>
