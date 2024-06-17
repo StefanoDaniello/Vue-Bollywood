@@ -84,7 +84,7 @@
             event.target.src = this.store.defaultImg
             },
             formatDate(dateString) {
-                return dateString.split(' ')[0];
+                return dateString.substring(0, 10);
             }
         },
         mounted() {
