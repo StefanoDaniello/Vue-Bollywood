@@ -31,6 +31,11 @@
             <li class="tag__item play blue">
               <a href="#"><i class="fas fa-play mr-2"></i> Play Trailer</a>
             </li>
+            <li class="tag__item"><i class="fas fa-tag mr-2"></i>
+             <RouterLink :to="{ name: 'single-movie', params: { 'id': item.id } }">
+               show
+             </RouterLink>
+            </li>
           </ul>
         </div>
       </article>
@@ -51,7 +56,7 @@ export default {
   },
   computed: {
     getImage() {
-      return this.item.cover_image
+      return this.item.movie.cover_image
         ? this.store.imgBasePath + this.item.movie.cover_image
         : "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/310px-Placeholder_view_vector.svg.png";
     },
