@@ -7,14 +7,17 @@
         </div>
     </div> -->
   <section >
-    <div class="container py-4">
+    <RouterLink :to="{ name: 'single-movie', params: { 'id': item.id } }">
+      <div class="container py-4">
       <article class="postcard dark blue">
         <a class="postcard__img_link" href="#">
           <img class="postcard__img" :src="getImage" @error="setDefaultImage" alt="Image Title" />
         </a>
         <div class="postcard__text">
           <h1 class="postcard__title blue">
-            <a href="#">{{ item.movie.title }}</a>
+            <RouterLink :to="{ name: 'single-movie', params: { 'id': item.id } }">
+              {{ item.movie.title }}
+             </RouterLink>
           </h1>
           <div class="postcard__subtitle small">
             <time datetime="2020-05-25 12:00:00">
@@ -40,6 +43,8 @@
         </div>
       </article>
     </div>
+    </RouterLink>
+   
   </section>
 </template>
 
