@@ -6,7 +6,7 @@
         <div class="card-container" v-if="movie" >
             <div class="card">
                 <div class="front-content">
-                    <img :src="store.imgBasePath + movie.cover_image" class="card-img-top" :alt="movie.title">
+                    <img  :src="getImage" @error="setDefaultImage"  class="card-img-top" :alt="movie.title">
                 </div>
                 <div class="content">
                     <h5 class="card-title">{{ movie.title }}</h5>
@@ -52,11 +52,19 @@
                 }).finally(() => {
                     // console.log('finally');
                 })
+            },
+            setDefaultImage(event) {
+            event.target.src = this.store.defaultImg
             }
         },
         mounted() {
         this.getMovie();
         },
+        computed: {
+            getImage() {
+                return this.movie?.cover_image ? this.store.imgBasePath + this.movie.cover_image : this.store.defaultImg;
+            }
+        }
 
     }
 </script>
