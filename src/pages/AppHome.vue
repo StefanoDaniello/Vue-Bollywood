@@ -3,8 +3,11 @@
     <div id="hero" class="container"></div>
   </div>
   <div class="container">
-    <CardComponent :item="movies" />
+    <div v-for="(item, index) in movies" :key="index">
+      <CardComponent :item="item" />
+    </div> 
   </div>
+  <div></div>
 </template>
 
 <script>
@@ -16,7 +19,7 @@ import CardComponent from '../components/CardComponent.vue'
 export default {
   name: "AppHome",
   components: {
-        CardComponent
+      CardComponent
     },
   data() {
     return {
@@ -25,14 +28,20 @@ export default {
     };
   },
   methods: {
-    getAll() {
-      axios.get(this.store.apiBaseUrl + "/movies").then((response) => {
-        console.log(response.data);
-      });
-    },
+    getmovies() {
+      axios.get(this.store.apiBaseUrl + "/movies")
+    .then((response) => {
+        // console.log(response.data.results);
+        this.movies = response.data.results;
+        // console.log(this.movies);
+    })
+    .catch((error) => {
+        console.error("Errore nella richiesta:", error);
+    });
+    }
   },
   mounted() {
-    this.getAll();
+    this.getmovies();
   },
 };
 </script>
