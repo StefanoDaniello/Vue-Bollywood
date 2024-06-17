@@ -1,24 +1,33 @@
 <template>
     <div class="conatiner text-center">
         <h1 class="card-title my-4">{{ movie?.title }}</h1>
-    </div>
-    <div class="text-center container">
-        <div class="card-container" v-if="movie" >
-            <div class="card">
-                <div class="front-content">
-                    <img  :src="getImage" @error="setDefaultImage"  class="card-img-top" :alt="movie.title">
-                </div>
-                <div class="content">
-                    <h5 class="card-title">{{ movie.title }}</h5>
-                    <p class="card-text"> Release Date: {{ movie.release_date }}</p>
-                    <p class="card-text"> Duration: {{ movie.duration }} min</p>
-                    <p class="card-text">Language: {{ movie.language }}</p>
-                    <p class="card-text">{{ movie.overview }}</p>
+        <div class="text-center container">
+            <div class="card-container" v-if="movie" >
+                <div class="card">
+                    <div class="front-content">
+                        <img  :src="getImage" @error="setDefaultImage"  class="card-img-top" :alt="movie.title">
+                    </div>
+                    <div class="content">
+                        <h5 class="card-title">{{ movie.title }}</h5>
+                        <p class="card-text"> Release Date: {{ movie.release_date }}</p>
+                        <p class="card-text"> Duration: {{ movie.duration }} min</p>
+                        <p class="card-text">Language: {{ movie.language }}</p>
+                        <p class="card-text">{{ movie.overview }}</p>
+                    </div>
                 </div>
             </div>
         </div>
-        
+        <h2>Recensioni</h2>
+
+       <div class="row">
+           <div class="col-6" v-for="(item, index) in movie.rewiews" :key="index">
+              <div>{{ item.name }}</div>
+            </div>
+       </div>
+
     </div>
+  
+    
    
 </template>
 
@@ -76,8 +85,8 @@
     justify-content: center;
 }
     .card-container {
-  width: 500px;
-  height: 500px;
+  width: 700px;
+  height: 700px;
   position: relative;
   border-radius: 10px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
