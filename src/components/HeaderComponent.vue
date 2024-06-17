@@ -3,9 +3,9 @@
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
         <router-link to="/" class="navbar-brand">
-            <div id="logo">
-                <img :src="img" alt="Bollywood Logo">
-            </div>
+          <div id="logo">
+            <img :src="img" alt="Bollywood Logo" />
+          </div>
         </router-link>
         <button
           class="navbar-toggler"
@@ -17,7 +17,7 @@
           aria-label="Toggle navigation"
           @click="show = !show"
         >
-          <span class="navbar-toggler-icon"></span>
+          <i class="fa-solid fa-bars"></i>
         </button>
         <div
           class="collapse navbar-collapse"
@@ -38,7 +38,7 @@
           </ul>
           <div class="ms-auto">
             <a href="http://localhost:8000" class="nav-link">
-              <i class="fa-solid fa-user"></i><span>Area Riservata</span>
+              <i class="fa-solid fa-user"></i><span> Area Riservata</span>
             </a>
           </div>
         </div>
@@ -52,7 +52,7 @@ export default {
   name: "HeaderComponent",
   data() {
     return {
-        img: "../src/img/bollywood.png",
+      img: "../src/img/bollywood.png",
       show: false,
       links: [
         {
@@ -74,21 +74,32 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-header{
-    background-color: #161E2E;
-    color: white;
+header {
+  nav{
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 1285px;
+    margin: 0 auto;
     border-radius: 5px;
-    a{
-        color: white !important;
-        &:hover{
-          color: #0076BD !important;
-        }
-      }
-    #logo{
-        width: 150px;
-        img{
-            width: 100%;
-        }
+    z-index: 1000;
+    background-color: #161e2e;
+    color: white;
+  }
+  a {
+    color: white !important;
+    &:hover {
+      color: #E50042 !important;
     }
+  }
+  #logo {
+    width: 150px;
+    img {
+      width: 100%;
+    }
+  }
+  .navbar-toggler {
+    color: white !important;
+  }
 }
 </style>
