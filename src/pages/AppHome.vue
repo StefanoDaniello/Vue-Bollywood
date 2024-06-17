@@ -3,6 +3,7 @@
     <div id="hero" class="container"></div>
   </div>
   <div class="container">
+    <div class="text-center"><h1>Proiezioni in corso</h1></div>
     <div v-for="(item, index) in movies" :key="index">
       <CardComponent :item="item" />
     </div> 

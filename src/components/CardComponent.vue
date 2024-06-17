@@ -6,7 +6,7 @@
             <p class="card-text"></p>
         </div>
     </div> -->
-  <section>
+  <section >
     <div class="container py-4">
       <article class="postcard dark blue">
         <a class="postcard__img_link" href="#">
