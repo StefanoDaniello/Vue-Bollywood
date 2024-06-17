@@ -1,5 +1,5 @@
 <template>
-  <header class="container">
+  <header class="container ">
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
         <router-link to="/" class="navbar-brand">
@@ -82,24 +82,17 @@ header {
     width: 1285px;
     margin: 0 auto;
     border-radius: 5px;
-    z-index: 1000;
-    background-color: #161e2e;
-    color: white;
-  }
-  a {
-    color: white !important;
-    &:hover {
-      color: #E50042 !important;
+    a{
+        color: white !important;
+        &:hover{
+          color: #0076BD !important;
+        }
+      }
+    #logo{
+        width: 150px;
+        img{
+            width: 100%;
+        }
     }
-  }
-  #logo {
-    width: 150px;
-    img {
-      width: 100%;
-    }
-  }
-  .navbar-toggler {
-    color: white !important;
-  }
 }
 </style>

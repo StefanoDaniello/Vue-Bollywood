@@ -1,33 +1,70 @@
 <template>
-    <section class="pt-5 mt-5">
-    <div class="container py-4" v-if="movie">
-      <article class="postcard dark blue">
-        <a class="postcard__img_link" href="#">
-          <img class="postcard__img" :src="getImage" @error="setDefaultImage" alt="Image Title" />
-        </a>
-        <div class="postcard__text">
-          <h1 class="postcard__title blue">
-            <a href="#">{{movie.title }}</a>
-          </h1>
-          <div class="postcard__subtitle small">
-            <time datetime="2020-05-25 12:00:00">
-              <i class="fas fa-calendar-alt mr-2"></i>Mon, May 25th 2020
-            </time>
-          </div>
-          <div class="postcard__bar"></div>
-          <div class="postcard__preview-txt">{{ movie.overview }}</div>
-          <ul class="postcard__tagbox">
-            <li class="tag__item"><i class="fas fa-tag mr-2"></i> Podcast</li>
-            <li class="tag__item">
-              <i class="fas fa-clock mr-2"></i> 55 mins.
-            </li>
-            <li class="tag__item play blue">
-              <a href="#"><i class="fas fa-play mr-2"></i> Play Trailer</a>
-            </li>
-            <li class="tag__item"><i class="fas fa-tag mr-2"></i>
-             
-            </li>
-          </ul>
+    <div class="conatiner text-center" v-if="movie">
+        <div class="container d-flex justify-content-start">
+            <RouterLink :to="{ name: 'home'}" >
+                <button class="back-button m-5">
+                    <div class="back-button-box">
+                    <span class="back-button-elem">
+                        <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"
+                        ></path>
+                        </svg>
+                    </span>
+                    <span class="back-button-elem ">
+                        <svg viewBox="0 0 46 40">
+                        <path
+                            d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"
+                        ></path>
+                        </svg>
+                    </span>
+                    </div>
+                </button>
+            </RouterLink>
+        </div>
+       
+        <h1 class="card-title my-3">{{ movie?.title }}</h1>
+        <div class="text-center container">
+            <div class="card-container"  >
+                <div class="card">
+                    <div class="front-content">
+                        <img  :src="getImage" @error="setDefaultImage"  class="card-img-top" :alt="movie.title">
+                    </div>
+                    <div class="content">
+                        <h5 class="card-title">{{ movie.title }}</h5>
+                        <p class="card-text"> Release Date: {{ movie.release_date }}</p>
+                        <p class="card-text"> Duration: {{ movie.duration }} min</p>
+                        <p class="card-text">Language: {{ movie.language }}</p>
+                        <p class="card-text">{{ movie.overview }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h2 class="my-5">Recensioni</h2>
+        <div class="row d-flex justify-content-center">
+            <div class="col-3 mb-3" v-for="(review, index) in movie.reviews" :key="index">
+                <div class="card" id="reviews" >
+                    <div class="d-flex">
+                        <img 
+                        src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" 
+                        class="rounded-circle m-3" 
+                        alt="Author image" 
+                        width="80" 
+                        height="80"
+                        />
+                        <h5 class="card-title title">{{ review.author }}</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">{{ review.content }}</p>
+                    </div>
+                    <p>
+                        <small class="text-muted">
+                        <span v-for="star in 5" :key="star" class="fa fa-star" :class="{'checked': star <= review.rating}"></span>
+                        </small>
+                    </p>
+                    <div class="card-footer">Created at: {{ formatDate(review.created_at) }}</div>
+                </div>
+            </div>
         </div>
       </article>
     </div>
@@ -69,7 +106,7 @@
             event.target.src = this.store.defaultImg
             },
             formatDate(dateString) {
-                return dateString.split(' ')[0];
+                return dateString.substring(0, 10);
             }
         },
         mounted() {
@@ -86,89 +123,53 @@
 </script>
 
 <style lang="scss" scoped>
-@import url("https://fonts.googleapis.com/css2?family=Baloo+2&display=swap");
-$main-green: #79dd09 !default;
-$main-green-rgb-015: rgba(121, 221, 9, 0.1) !default;
-$main-yellow: #bdbb49 !default;
-$main-yellow-rgb-015: rgba(189, 187, 73, 0.1) !default;
-$main-red: #bd150b !default;
-$main-red-rgb-015: rgba(189, 21, 11, 0.1) !default;
-$main-blue: #0076bd !default;
-$main-blue-rgb-015: rgba(0, 118, 189, 0.1) !default;
+    // .postcard {
+    // border: 1px solid #ccc;
+    // margin-bottom: 10px;
+    // padding: 10px;
+    // }
+    // .postcard__img {
+    // width: 100%;
+    // height: auto;
+    // }
+    .fa-star {
+    color: #ddd;
+    }
+    .fa-star.checked {
+    color: #ffc107;
+    }
+    #reviews {
+        min-height: 400px;
+        width: 300px;
+        border-radius: 20px;
+    }
+    .title {
+        margin: 45px 0 0 20px;
+    }
 
-/* This pen */
-body {
-	font-family: "Baloo 2", cursive;
-	font-size: 16px;
-	color: #ffffff;
-	text-rendering: optimizeLegibility;
-	font-weight: initial;
+    
+.container{
+    padding: 20px; 
+    display: flex;
+    justify-content: center;
 }
 
-.dark {
-	background: #110f16;
+.card-container {
+    width: 700px;
+    height: 700px;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
 }
 
-
-.light {
-	background: #f3f5f7;
+.card {
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
 }
 
-a, a:hover {
-	text-decoration: none;
-	transition: color 0.3s ease-in-out;
-}
-
-#pageHeaderTitle {
-	margin: 2rem 0;
-	text-transform: uppercase;
-	text-align: center;
-	font-size: 2.5rem;
-}
-
-/* Cards */
-.postcard {
-  flex-wrap: wrap;
-  display: flex;
-  
-  box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.66);
-  border-radius: 10px;
-  margin: 0 0 2rem 0;
-  overflow: hidden;
-  position: relative;
-  color: #ffffff;
-
-	&.dark {
-		background-color: #18151f;
-	}
-	&.light {
-		background-color: #e1e5ea;
-	}
-	
-	.t-dark {
-		color: #18151f;
-	}
-	
-  a {
-    color: inherit;
-  }
-	
-	h1,	.h1 {
-		margin-bottom: 0.5rem;
-		font-weight: 500;
-		line-height: 1.2;
-	}
-	
-	.small {
-		font-size: 80%;
-	}
-
-  .postcard__title {
-    font-size: 1.75rem;
-  }
-
-  .postcard__img {
-    max-height: 180px;
+.card .front-content {
     width: 100%;
     object-fit: cover;
     position: relative;

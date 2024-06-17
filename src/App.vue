@@ -1,8 +1,10 @@
 <template>
   <HeaderComponent/>
-  <router-view></router-view>
+  <div class="container mt-5">
+    <router-view ></router-view>
   <FooterComponent/>
-  </template>
+    </div>
+</template>
 
 <script>
 import HeaderComponent from './components/HeaderComponent.vue';
@@ -26,5 +28,4 @@ import axios from 'axios';
 </script>
 
 <style lang="scss" scoped>
-
 </style>
