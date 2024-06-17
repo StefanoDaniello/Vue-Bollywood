@@ -1,7 +1,8 @@
 <template>
+    <div class="conatiner text-center">
+        <h1 class="card-title my-4">{{ movie?.title }}</h1>
+    </div>
     <div class="text-center container">
-        <h1 class="card-title my-3">{{ movie.title }}</h1>
-
         <div class="card-container" v-if="movie" >
             <div class="card">
                 <div class="front-content">
@@ -16,6 +17,7 @@
                 </div>
             </div>
         </div>
+        
     </div>
    
 </template>
@@ -61,7 +63,9 @@
 
 <style lang="scss" scoped>
 .container{
-    margin: 0 auto;
+    padding: 20px; 
+    display: flex;
+    justify-content: center;
 }
     .card-container {
   width: 500px;
