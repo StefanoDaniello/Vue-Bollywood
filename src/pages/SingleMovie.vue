@@ -1,8 +1,8 @@
 <template>
-    <div class="conatiner text-center">
+    <div class="conatiner text-center" v-if="movie">
         <h1 class="card-title my-4">{{ movie?.title }}</h1>
         <div class="text-center container">
-            <div class="card-container" v-if="movie" >
+            <div class="card-container"  >
                 <div class="card">
                     <div class="front-content">
                         <img  :src="getImage" @error="setDefaultImage"  class="card-img-top" :alt="movie.title">
