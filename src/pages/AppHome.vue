@@ -1,5 +1,5 @@
 <template>
-  <div class="container herocontainer">
+  <div class="container herocontainer ">
     <div id="hero" class="container"></div>
   </div>
   <div class="container">
@@ -8,7 +8,6 @@
       <CardComponent :item="item" />
     </div> 
   </div>
-  <div></div>
 </template>
 
 <script>

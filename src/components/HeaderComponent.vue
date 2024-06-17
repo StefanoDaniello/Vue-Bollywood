@@ -1,5 +1,5 @@
 <template>
-  <header class="container">
+  <header class="container ">
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
         <router-link to="/" class="navbar-brand">
@@ -78,6 +78,12 @@ header{
     background-color: #161E2E;
     color: white;
     border-radius: 5px;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    right: 0;
     a{
         color: white !important;
         &:hover{
