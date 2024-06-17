@@ -1,7 +1,7 @@
 <template>
-    <div class="container d-flex justify-content-start">
+    <div class="container d-flex justify-content-start ">
       <RouterLink :to="{ name: 'home'}" >
-        <button class="back-button my-4">
+        <button class="back-button my-5">
             <div class="back-button-box">
             <span class="back-button-elem">
                 <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
