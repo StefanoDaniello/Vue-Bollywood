@@ -3,7 +3,7 @@
         <div id="footerBackground"></div>
         <div id="footerLeft">
          <span>
-            Copyright &copy; 2024
+            Copyright &copy; 2024 Bollywood All Rights Reserved.
          </span >
         </div>
 
@@ -29,12 +29,12 @@
                     Daniel Bosa
                 </li>
             </ul>
-                <p class="p-0"> with &hearts; </p>
+                <p class="mb-5"> with &hearts; </p>
         </div>
 
         <div id="footerRight">
-            <span>
-                Contattaci a questo indirizzo: Bolly@wood.com 
+            <span class="mb-5">
+                Contattaci a questo indirizzo: <br> Bolly@wood.com 
             </span>
         </div>
     </footer>
@@ -55,28 +55,34 @@ footer {
     min-height: 200px;
     display: flex;
     justify-content: space-between;
-    padding: 130px;
-    padding-bottom: 0px;
+    padding: 80px 90px ;
+    padding-bottom: 30px;
     width: 100%;
     background-color: #161e2e;
     background-image: url("../img/footer-background.png");
-    background-size: 100% 220%;
+    background-size: 135% 280%;
     background-repeat: no-repeat;
-    height: 100%;
     background-position: bottom center;
-    
+    align-items: end;
+    text-align: center;
 
     ul {
         list-style: none;
-        padding-left: 0px;
+        display: flex;
+        li {
+            display: inline-block;
+            margin-left: 5px;
+            margin-right: 5px;
+        }
     }
     #footerMid {
-        text-align: center;
         padding-bottom: 100px;
         h6 {
             display: inline;
         }
     }
+
+
 }
 
 
