@@ -47,14 +47,13 @@
             <div class="postcard__bar"></div>
             <div class="postcard__preview-txt">{{ movie.overview }}</div>
             <ul class="postcard__tagbox">
-              <li class="tag__item"><i class="fas fa-tag mr-2"></i> Podcast</li>
+              
               <li class="tag__item">
-                <i class="fas fa-clock mr-2"></i> 55 mins.
+                <i class="fas fa-clock mr-2"></i> {{ movie.duration }}
               </li>
               <li class="tag__item play red">
-                <a href="#"><i class="fas fa-money-bill-alt mx-2"></i></a>
+                <a href="#"><i class="fas fa-money-bill-alt mx-2"></i>10 €</a>
               </li>
-              <li class="tag__item"><i class="fas fa-tag mr-2"></i></li>
             </ul>
           </div>
         </article>
