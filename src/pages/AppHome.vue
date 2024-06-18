@@ -6,7 +6,7 @@
  
 
     <div class="d-flex justify-content-between align-items-center">
-      <h1>Seleziona la data di proiezione</h1>
+      <h1>Seleziona la data </h1>
       <select name="movies" id="movies" class="form-select w-25" 
         @change="setParams()" v-model="data">
         <option :value="currentDate" selected>{{ currentDate }}</option>
