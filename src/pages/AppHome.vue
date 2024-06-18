@@ -15,6 +15,8 @@
     <div class="text-center"><h1>Proiezioni in corso</h1></div>
     <div v-for="(item, index) in movies" :key="index">
       <CardComponent :item="item" />
+  
+
     </div> 
   </div>
 </template>
@@ -57,6 +59,7 @@ export default {
         .then((response) => {
           this.movies = response.data.results;
           this.params = {};
+          console.log(response.data.results);
         })
         .catch((error) => {
           console.error("Errore nella richiesta:", error);

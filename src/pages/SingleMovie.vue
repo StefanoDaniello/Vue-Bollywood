@@ -52,7 +52,7 @@
                 <i class="fas fa-clock mr-2"></i> 55 mins.
               </li>
               <li class="tag__item play red">
-                <a href="#"><i class="fas fa-play mr-2"></i> Play Trailer</a>
+                <a href="#"><i class="fas fa-money-bill-alt mx-2"></i></a>
               </li>
               <li class="tag__item"><i class="fas fa-tag mr-2"></i></li>
             </ul>
@@ -120,10 +120,10 @@ export default {
         .get(`${this.store.apiBaseUrl}/movies/${this.$route.params.id}`)
         .then((res) => {
           this.movie = res.data.results.movie;
-          console.log(res.data.results);
+          // console.log(res.data.results);
           this.hall = res.data.results.hall;
           this.time_slot = res.data.results.time_slot;
-          console.log(res.data.results.movie);
+          // console.log(res.data.results.movie);
         })
         .catch((err) => {
           console.log(err);
