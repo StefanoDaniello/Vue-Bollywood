@@ -3,12 +3,13 @@
     <div id="hero" class="container"></div>
   </div>
   <div class="container">
+ 
 
     <div class="d-flex justify-content-between align-items-center">
-      <h1>Proiezioni</h1>
+      <h1>Seleziona la data di proiezione</h1>
       <select name="movies" id="movies" class="form-select w-25" 
         @change="setParams()" v-model="data">
-        <option value="" selected>Tutte le categorie</option>
+        <option :value="currentDate" selected>{{ currentDate }}</option>
         <option :value="item.date" v-for="item in store.data" :key="data.id">{{ item.date }}
         </option>
       </select>
@@ -39,9 +40,17 @@ export default {
       movies: [],
       data: '',
       params: {},
+      currentDate: this.getCurrentDate()
     };
   },
   methods: {
+    getCurrentDate() {
+      const date = new Date();
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, '0'); // Mesi da 0 a 11
+      const day = String(date.getDate()).padStart(2, '0'); // Giorni da 1 a 31
+      return `${year}-${month}-${day}`; // Formato YYYY-MM-DD
+    },
     setParams() {
         if(this.data){
           this.params.data = this.data
