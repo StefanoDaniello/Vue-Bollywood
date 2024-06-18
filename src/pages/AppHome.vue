@@ -3,10 +3,13 @@
     <div id="hero" class="container"></div>
   </div>
   <div class="container">
-    <div class="d-flex justify-content-between align-items-center">
+ 
+
+    <div class="flex-direction-column align-content-end align-items-center">
       <h1>Seleziona la data </h1>
-      <select name="movies" id="movies" class="form-select w-25" @change="setParams()" v-model="data">
-        <option value="" selected>Seleziona la data</option>
+      <select name="movies" id="movies" class="form-select w-25" 
+        @change="setParams()" v-model="data">
+        <option value="" selected>Tutti le proiezioni</option>
         <option :value="currentDate">Oggi</option>
         <option v-for="date in filteredDates" :key="date" :value="date">{{ date }}</option>
       </select>

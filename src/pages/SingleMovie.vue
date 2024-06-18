@@ -24,7 +24,7 @@
     </div>
 
     <!-- <h1 class="card-title my-3">{{ movie?.title }}</h1> -->
-    <section class="pt-5 mt-5">
+    <section class="mt-5">
       <div class="container py-4" v-if="movie">
         <article class="postcard dark red">
           <a class="postcard__img_link" href="#">
@@ -41,7 +41,7 @@
             </h1>
             <div class="postcard__subtitle small">
               <time datetime="2020-05-25 12:00:00">
-                <i class="fas fa-calendar-alt mr-2"></i> Durata: {{ movie.duration }}
+                <!-- <i class="fas fa-calendar-alt mr-2"></i> Durata: {{ movie.duration }} -->
               </time>
             </div>
             <div class="postcard__bar"></div>
@@ -122,7 +122,12 @@ export default {
           // console.log(res.data.results);
           this.hall = res.data.results.hall;
           this.time_slot = res.data.results.time_slot;
+<<<<<<< HEAD
           // console.log(res.data.results.movie);
+=======
+          console.log(res.data.results.movie);
+          this.price_ticket = res.data.results.price_ticket;
+>>>>>>> e125a4c81d893f6b9c19dcbd755bf98ad904c98a
         })
         .catch((err) => {
           console.log(err);

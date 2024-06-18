@@ -75,7 +75,7 @@ export default {
 
 <style lang="scss" scoped>
 .nav-link.active {
-  color: #0076BD !important;
+  color: #bd150b !important;
 }
 
 header{
@@ -91,7 +91,7 @@ header{
     a{
         color: white !important;
         &:hover{
-          color: #0076BD !important;
+          color: #bd150b !important;
         }
       }
     #logo{
