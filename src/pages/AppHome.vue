@@ -9,7 +9,8 @@
       <h1>Seleziona la data </h1>
       <select name="movies" id="movies" class="form-select w-25" 
         @change="setParams()" v-model="data">
-        <option :value="currentDate" selected>{{ currentDate }}</option>
+        <option value="" selected>Seleziona la data</option>
+        <option :value="currentDate">Oggi</option>
         <option :value="item.date" v-for="item in store.data" :key="data.id">{{ item.date }}
         </option>
       </select>
