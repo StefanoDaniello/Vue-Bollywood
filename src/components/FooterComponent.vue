@@ -3,7 +3,7 @@
         <div id="footerBackground"></div>
         <div id="footerLeft">
          <span>
-            Copyright &copy; 2024 Bollywood All Rights Reserved.
+            Copyright &copy; 2024 Bollywood <br> All Rights Reserved.
          </span >
         </div>
 
