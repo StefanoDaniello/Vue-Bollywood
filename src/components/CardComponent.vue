@@ -1,11 +1,4 @@
 <template>
-  <!-- <div class="card h-100">
-        <img :src=getImage class="card-img-top" :alt=item.title>
-        <div class="card-body">
-            <h5 class="card-title"></h5>
-            <p class="card-text"></p>
-        </div>
-    </div> -->
   <section >
     <RouterLink :to="{ name: 'single-movie', params: { 'id': item.id } }">
       <div class="container py-4">
