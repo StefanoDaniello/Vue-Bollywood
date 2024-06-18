@@ -6,7 +6,6 @@
     <div class="text-center"><h1>Proiezioni in corso</h1></div>
     <div v-for="(item, index) in movies" :key="index">
       <CardComponent :item="item" />
-      <h1>{{ item.title }}</h1>
     </div> 
   </div>
 </template>
