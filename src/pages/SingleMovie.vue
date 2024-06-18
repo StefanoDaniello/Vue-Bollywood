@@ -122,12 +122,7 @@ export default {
           // console.log(res.data.results);
           this.hall = res.data.results.hall;
           this.time_slot = res.data.results.time_slot;
-<<<<<<< HEAD
           // console.log(res.data.results.movie);
-=======
-          console.log(res.data.results.movie);
-          this.price_ticket = res.data.results.price_ticket;
->>>>>>> e125a4c81d893f6b9c19dcbd755bf98ad904c98a
         })
         .catch((err) => {
           console.log(err);
