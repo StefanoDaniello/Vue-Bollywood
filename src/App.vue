@@ -22,8 +22,18 @@ import axios from 'axios';
     return {
       store
     }
+  },
+  methods: {
+    getData() {
+      axios.get(this.store.apiBaseUrl + '/movies').then((res) => {
+        //console.log(res.data);
+        this.store.data = res.data.results;
+      });
+    }
+  },
+  mounted() {
+    this.getData();
   }
-
 }
 </script>
 
