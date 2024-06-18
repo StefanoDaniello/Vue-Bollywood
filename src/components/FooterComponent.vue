@@ -55,8 +55,7 @@ footer {
     min-height: 200px;
     display: flex;
     justify-content: space-between;
-    padding: 80px 90px ;
-    padding-bottom: 30px;
+    padding: 80px 90px;
     width: 100%;
     background-color: #161e2e;
     background-image: url("../img/footer-background.png");

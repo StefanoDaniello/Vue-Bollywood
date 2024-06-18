@@ -40,13 +40,13 @@
           <div class="mr-grid action-row">
             <div class="col2">
               <div class="watch-btn">
-                <h3><i class="fas fa-play"></i>WATCH TRAILER</h3>
+                <h3>{{ item.price_ticket }} €</h3>
               </div>
             </div>
             <div class="col6 action-btn">
               <RouterLink
                 :to="{ name: 'single-movie', params: { id: item.id } }"
-                ><i class="fas fa-eye">Details</i
+                ><i class="fas fa-eye fs-4">Details</i
               ></RouterLink>
             </div>
           </div>
@@ -58,6 +58,7 @@
 
 <script>
 import { store } from "../store";
+
 export default {
   name: "CardComponent1",
   props: ["item"],
@@ -71,12 +72,18 @@ export default {
       return this.item.movie.cover_image ? this.store.imgBasePath + this.item.movie.cover_image
         : "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png";
     },
+
+  },
+  mounted() {
+    console.log(this.item.movie);
+    console.log(this.item);
   },
   methods: {
     setDefaultImage(event) {
       event.target.src = this.store.defaultImg;
     },
   },
+
 };
 </script>
 
@@ -188,7 +195,8 @@ $dark-color: #1e1b26;
   border: 1px solid $brand-color;
   border-radius: 5px;
   padding: 4px;
-  width: 140px;
+  width: 60px;
+  text-align: center;
 }
 
 .action-row {
