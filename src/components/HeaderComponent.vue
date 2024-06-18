@@ -74,6 +74,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.nav-link.active {
+  color: #0076BD !important;
+}
+
 header{
     background-color: #161E2E;
     color: white;
