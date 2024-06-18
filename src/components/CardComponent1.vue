@@ -40,7 +40,7 @@
           <div class="mr-grid action-row">
             <div class="col2">
               <div class="watch-btn">
-                <h3><i class="fas fa-play"></i>WATCH TRAILER</h3>
+                <h3>{{ item.price_ticket }},00 <i class="fa-solid fa-euro-sign"></i></h3>
               </div>
             </div>
             <div class="col6 action-btn">
@@ -122,7 +122,8 @@ $dark-color: #1e1b26;
   border-top-right-radius: 4px;
   position: relative;
   img {
-    height: 100%;
+    aspect-ratio: 2 / 1.9;
+    object-position: top;
     object-fit: cover;
   }
 }
@@ -188,7 +189,8 @@ $dark-color: #1e1b26;
   border: 1px solid $brand-color;
   border-radius: 5px;
   padding: 4px;
-  width: 140px;
+  width: 60px;
+  text-align: center;
 }
 
 .action-row {

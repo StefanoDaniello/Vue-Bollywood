@@ -6,11 +6,11 @@
   <div class="container">
  
 
-    <div class="d-flex justify-content-between align-items-center">
+    <div class="flex-direction-column align-content-end align-items-center">
       <h1>Seleziona la data </h1>
       <select name="movies" id="movies" class="form-select w-25" 
         @change="setParams()" v-model="data">
-        <option value="" selected>Seleziona la data</option>
+        <option value="" selected>Tutti le proiezioni</option>
         <option :value="currentDate">Oggi</option>
         <option :value="item.date" v-for="item in store.data" :key="data.id">{{ item.date }}
         </option>
@@ -18,7 +18,7 @@
   </div>
 
 
-    <div class="text-center"><h1>Proiezioni in corso</h1></div>
+    <h1 class="text-center">Proiezioni in corso</h1>
     <div class="row">
       <div v-for="(item, index) in movies" :key="index" class="col-12 col-xl-4 col-lg-6">
         <CardComponent1 :item="item" />
