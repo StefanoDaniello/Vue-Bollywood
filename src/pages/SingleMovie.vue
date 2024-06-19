@@ -47,12 +47,12 @@
             <div class="postcard__bar"></div>
             <div class="postcard__preview-txt">{{ movie.overview }}</div>
             <ul class="postcard__tagbox">
-              <li class="tag__item"><i class="fas fa-tag mr-2"></i> Genere</li>
+              
               <li class="tag__item">
-                <i class="fas fa-clock mr-2"></i> Durata: {{movie.duration}}
+                <i class="fas fa-clock mr-2"></i> {{ movie.duration }}
               </li>
               <li class="tag__item play red">
-                <a href="#">{{ price_ticket }},00 <i class="fa-solid fa-euro-sign"></i></a>
+                <a href="#"><i class="fas fa-money-bill-alt mx-2"></i>10 €</a>
               </li>
             </ul>
           </div>
@@ -119,11 +119,10 @@ export default {
         .get(`${this.store.apiBaseUrl}/movies/${this.$route.params.id}`)
         .then((res) => {
           this.movie = res.data.results.movie;
-          console.log(res.data.results);
+          // console.log(res.data.results);
           this.hall = res.data.results.hall;
           this.time_slot = res.data.results.time_slot;
-          console.log(res.data.results.movie);
-          this.price_ticket = res.data.results.price_ticket;
+          // console.log(res.data.results.movie);
         })
         .catch((err) => {
           console.log(err);

@@ -15,12 +15,12 @@
       </select>
     </div>
 
-    <h1 class="text-center">Proiezioni in corso</h1>
-    <div class="row">
-      <div v-for="(item, index) in movies" :key="index" class="col-12 col-xl-4 col-lg-6">
-        <CardComponent1 :item="item" />
-      </div> 
-    </div>
+    <div class="text-center"><h1>Proiezioni in corso</h1></div>
+    <div v-for="(item, index) in movies" :key="index">
+      <CardComponent :item="item" />
+  
+
+    </div> 
   </div>
 </template>
 
@@ -62,6 +62,7 @@ export default {
         .then((response) => {
           this.movies = response.data.results;
           this.params = {};
+          console.log(response.data.results);
         })
         .catch((error) => {
           console.error("Errore nella richiesta:", error);

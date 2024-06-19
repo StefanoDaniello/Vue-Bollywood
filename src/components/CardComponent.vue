@@ -22,10 +22,10 @@
           <ul class="postcard__tagbox">
             <li class="tag__item"><i class="fas fa-tag mr-2"></i> Podcast</li>
             <li class="tag__item">
-              <i class="fas fa-clock mr-2"></i> 55 mins.
+              <i class="fas fa-clock mr-2"></i> {{ item.movie.duration }}
             </li>
             <li class="tag__item play blue">
-              <a href="#"><i class="fas fa-play mr-2"></i> Play Trailer</a>
+              <a href="#"><i class="fas fa-money-bill-alt mx-2"></i>{{ item.price_ticket }} €</a>
             </li>
             <li class="tag__item"><i class="fas fa-tag mr-2"></i>
              <RouterLink :to="{ name: 'single-movie', params: { 'id': item.id } }">
