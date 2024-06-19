@@ -27,12 +27,12 @@
 <script>
 import { store } from "../store";
 import axios from "axios";
-import CardComponent from '../components/CardComponent.vue';
+import CardComponent1 from '../components/CardComponent1.vue';
 
 export default {
   name: "AppHome",
   components: {
-    CardComponent
+    CardComponent1
   },
   data() {
     return {
@@ -93,7 +93,7 @@ export default {
   width: 800px;
   height: 500px;
   #hero{
-    background-image: url('../img/heroImgtr.png');
+    background-image: url('../img/heroImgtr-def.png');
     width: 100%;
     height: 100%;
     background-size: contain;
